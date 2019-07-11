@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product List
+{% endblock  %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid py-2">
+    <div class="container-fluid">
+        <h1 class="display-4">Products</h1>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+    {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{ product.image_url }}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <div class="row">
+                            <div class="col-6">
+                                {{ product.name }}
+                            </div>
+                            <div class="col-6 text-right">
+                                ฿{{ product.price }}THB
+                            </div>
+                        </div>
+                    </h5>
+                    <p class="card-text">{{ product.stock }} item in stock.</p>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock  %}
