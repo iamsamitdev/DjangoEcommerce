@@ -15,8 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic.base import TemplateView
+
+from rest_framework import routers
+from note.note_api import NoteViewSet
+
+router = routers.DefaultRouter()
+router.register('', NoteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('products.urls')),  # register
+    path('accounts/', include('django.contrib.auth.urls')),  # login
+    path('accounts/profile/',
+         TemplateView.as_view(template_name='profile.html'), name='profile'),
     path('', include('products.urls')),
+    path('note/api/', include(router.urls)),
 ]

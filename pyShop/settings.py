@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# URL to redirect when login success
+LOGIN_REDIRECT_URL = 'profile'
+
+# URL to redirect when logout
+LOGOUT_REDIRECT_URL = 'profile'
 
 # Application definition
 
@@ -37,7 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
+    'note',
+    'widget_tweaks',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +78,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pyShop.wsgi.application'
 
+# Custom Auth User
+# AUTH_USER_MODEL = 'CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

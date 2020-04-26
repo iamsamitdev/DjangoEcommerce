@@ -1,0 +1,10 @@
+ul.errorlist
+{
+    padding: 0px;
+    margin: 8px 0px 0px 0px;
+    list-style-type: none;
+}
+
+ul.errorlist li{
+    color: red
+}
